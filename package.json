@@ -1,0 +1,25 @@
+{
+  "name": "key-value",
+  "version": "1.0.0",
+  "description": "\"Project on a store management for learn NoSql with Key-Value database\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShadowCoders/cle-valeur.git"
+  },
+  "keywords": [
+    "key-value"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShadowCoders/cle-valeur/issues"
+  },
+  "homepage": "https://github.com/ShadowCoders/cle-valeur#readme",
+  "dependencies": {
+    "redis": "^4.6.4"
+  }
+}
