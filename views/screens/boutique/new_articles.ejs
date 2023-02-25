@@ -294,7 +294,7 @@
                         <div class="card">
                           <div class="card-body">
                             <h4 class="card-title">Enregistrer Nouveau Produit</h4>
-                            <form class="form-sample">
+                            <form class="form-sample" method="POST" action="/api/articles" id="add_article" >
 
                               <p class="card-description">
                                 Articles
@@ -312,16 +312,16 @@
 
                                           <tr>
                                             <td>
-                                              <select class="form-control">
-                                                <option>America</option>
-                                                <option>Italy</option>
-                                                <option>Russia</option>
-                                                <option>Britain</option>
+                                              <select name="article_designation" class="form-control">
+                                                <option value="Lait">Lait</option>
+                                                <option value="Pain">Pain</option>
+                                                <option value="Viande">Viande</option>
+                                                <option value="Legumes">Legumes</option>
                                               </select>
                                             </td>
 
                                             <td>
-                                              <input type="number" min="0" class="form-control">
+                                              <input type="number" min="0" class="form-control" name="article_number">
                                             </td>
                                             <td>
                                               <i title="Retirer" style="font-size: 25px" class="mdi mdi-minus-circle text-danger icon-remove" onclick="RemoveRow(this)"></i>

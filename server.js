@@ -28,21 +28,7 @@ app.use('/js', express.static(path.resolve(__dirname, "views/js")))
 app.use('/fonts', express.static(path.resolve(__dirname, "views/fonts")))
 app.use('/vendors', express.static(path.resolve(__dirname, "views/vendors")))
 
-app.get('/', (req, res) => {
-    res.render("index");
-})
-
-app.get('/articles/add', (req, res) => {
-    res.render("screens/boutique/new_articles");
-})
-
-app.get('/articles/stock', (req, res) => {
-    res.render("screens/boutique/new_articles");
-})
-
-app.get('/articles/arrivee', (req, res) => {
-    res.render("screens/boutique/arrivee");
-})
+app.use('/', require('./server/routes/router'));
 
 // app.get('/new_articles', (req, res) => {
 //     res.render("./views/screens/boutique/new_articles.ejs");
