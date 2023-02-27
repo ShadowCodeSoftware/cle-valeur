@@ -2,7 +2,11 @@ const express = require('express');
 const route = express.Router();
 const controller = require('../controller/controller-article')
 
+const controller_vendeur = require('../controller/controller_vendeur')
+
 const articleServices = require('../services/render-articles');
+
+const sellServices = require('../services/render-vendeur');
 
 // Routes
 route.get('/', (req, res) => {
@@ -18,10 +22,23 @@ route.get('/articles/arrivee', (req, res) => {
     res.render("screens/boutique/arrivee");
 })
 
+
+
 // Client
 
 // API
 route.post('/api/articles', controller.create);
 route.get('/api/articles', controller.findAll);
+
+
+// Sells
+
+// routes
+route.get('/sell/new', sellServices.new_sell);
+route.get('/sell/veiw', sellServices.show_sells_details);
+4
+// API
+route.post('/api/sells', controller_vendeur.create);
+route.get('/api/sells', controller_vendeur.findAll);
 
 module.exports = route
