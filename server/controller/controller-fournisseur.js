@@ -14,11 +14,20 @@ exports.create = async (req, res) => {
     return res.redirect('/fournisseur/add');
 }
 
+exports.delete = async(req, res) =>{
+    const key = req.params.id;
+    client.sendCommand(['DEL', `${key}`]);
+
+    return res.redirect('/fournisseur/add')
+}
 
 exports.find = async (req, res) => {
     let data = [];
     const listArticles = await client.sendCommand(['KEYS', 'fournisseur:*']);
-    
+    // let kies = [];
+    // kies.push(listArticles);
+    data.push(listArticles);
+
     for (let i = 0; i < listArticles.length; i++){
         const four = await client.sendCommand(['HVALS',`${listArticles[i]}`]);
         data.push(four)
