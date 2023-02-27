@@ -32,6 +32,9 @@ route.get('/fournisseur/add', fournisseurServices.add_fournisseur);
     
     //Fournisseur
         route.post('/api/fournisseur', controller_four.create);
+        route.get('/api/fournisseur', controller_four.find);
+        // route.put('/api/fournisseur/:id', controller_four.update);
+        // route.delete('/api/fournisseur/:id', controller_four.delete);
 
 
 module.exports = route

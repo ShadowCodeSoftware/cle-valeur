@@ -15,6 +15,21 @@ exports.create = async (req, res) => {
 }
 
 
+exports.find = async (req, res) => {
+    let data = [];
+    const listArticles = await client.sendCommand(['KEYS', 'fournisseur:*']);
+    
+    for (let i = 0; i < listArticles.length; i++){
+        const four = await client.sendCommand(['HVALS',`${listArticles[i]}`]);
+        data.push(four)
+    }
+
+    // const articles = await client.sendCommand(['KEYS', 'article:*']);
+    res.send(data)
+    // console.log(articles);
+}
+
+
 async function countFournisseur() {
     let count = 0;
     try{
