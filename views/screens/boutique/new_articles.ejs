@@ -386,21 +386,23 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  <% if (articles) {%>
+                                  <% for(var i=0; i<articles.length; i++) {%>
                                   <tr>
                                     <td class="py-1">
                                       <i class="mdi mdi-grid-large menu-icon"></i>
                                     </td>
                                     <td>
-                                      Herman Beck
+                                      <%= articles[i][0] %>
                                     </td>
                                     <td>
-                                      254
+                                      <%= articles[i][2] %>
                                     </td>
                                     <td>
-                                      $ 77.99
+                                      <%= articles[i][1] %> FCFA
                                     </td>
                                     <td>
-                                      $ 77.99
+                                      <%= articles[i][2] * articles[i][1] %>
                                     </td>
                                     <td>
                                       <div class="btn-wrapper">
@@ -409,6 +411,8 @@
                                       </div>
                                     </td>
                                   </tr>
+                                  <% } %>
+                                  <% } %>
                                   <tr>
                                     <td class="py-1">
                                       <i class="mdi mdi-grid-large menu-icon"></i>

@@ -9,15 +9,27 @@ exports.create = async (req, res) => {
     console.log(req);
     const idArticle = await countArticle()
     
-    const newArticle = client.sendCommand(['HMSET', `article:${idArticle.length + 1}`, 'name', `${req.body.article_designation}`, 'price', `${req.body.article_number}`])
+    const newArticle = client.sendCommand(['HMSET', `article:${idArticle.length + 1}`, 'name', `${req.body.article_designation}`, 'price', `${req.body.article_number}`, 'qte', '0'])
     // return res.status(200).send({message: `L'article ${idArticle.length + 1}: ${req.article_designation} a bien ete enregistree`});
     return res.redirect('/articles/add');
 }
 
-exports.findAll = async (req, res, next) => {
-    const articles = await client.sendCommand(['HGETALL', 'article:12']);
-    // const articles = await client.sendCommand(['KEYS', 'article:*']);
-    res.status(200).send({message: articles})
+exports.findAll = async (req, res) => {
+    let data = [];
+    // const articles = await client.sendCommand(['HGETALL', 'article:12']);
+    const listArticles = await client.sendCommand(['KEYS', 'article:*']);
+    for(let i = 0; i<listArticles.length; i++) {
+        const article = await client.sendCommand(['HVALS', `${listArticles[i]}`]);
+        // const article = await client.sendCommand(['HVALS', `${articles[i]}`]);
+        data.push(article);
+    }
+    // return res.status(200).send({message: "L", data: articles})
+    // return res.redirect(`/articles/add`);
+    res.send(data)
+}
+
+exports.findByKey = async (req, res) => {
+
 }
 
 async function countArticle() {
