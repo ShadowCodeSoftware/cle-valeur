@@ -31,9 +31,25 @@ exports.create = async (req, res) => {
     return res.redirect('/api/sells');
 }
 
-exports.findAll = async (req, res, next) => {
+exports.findAllSells = async (req, res, next) => {
     // const Sells = await client.sendCommand(['HGETALL', 'Sell:12']);
     const Sells_id = await client.sendCommand(['KEYS', 'Sell:*'])
+    const Sells = []
+
+    for (let i = 1; i <= Sells_id.length; i++){
+        let item = await client.sendCommand(['HGETALL', 'Sell:'+i])
+        item.push('Sell:'+i)
+        Sells.push(item)
+    }
+
+    Sells.push(Sells_id)
+
+    return res.render("screens/vendeur/vendeur",{Sells:Sells})
+}
+
+exports.findAllSellDetails = async (req, res, next) => {
+    // const Sells = await client.sendCommand(['HGETALL', 'Sell:12']);
+    res.send(req.params.id)
     const Sells = []
 
     for (let i = 1; i <= Sells_id.length; i++){
@@ -41,7 +57,9 @@ exports.findAll = async (req, res, next) => {
         Sells.push(item)
     }
 
-    return res.render("screens/vendeur/vendeur",{Sells:Sells})
+    Sells.push(Sells_id)
+
+    return res.render("screens/vendeur/view_sell_details",{Sells:Sells})
 }
 
 async function countSell() {

@@ -114,7 +114,8 @@
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Espace <span class="text-black fw-bold">Details Vente</span></h1>
-            <h3 class="welcome-sub-text">Ici sont renseigner toutes les informations sur les produits achetes par le client Moussa</h3>
+            <h3 class="welcome-sub-text">Ici sont renseigner toutes les informations sur les produits achetes par le
+              client Moussa</h3>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -396,29 +397,31 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr>
-                                  <td class="py-1">
-                                    <i class="mdi mdi-grid-large menu-icon"></i>
-                                  </td>
-                                  <td>
-                                    Foku
-                                  </td>
-                                  <td>
-                                    222569843
-                                  </td>
-                                  <td>
-                                    Gare Marchandises
-                                  </td>
-                                  <td>
-                                    Produits vivriers
-                                  </td>
-                                  <td>
-                                    <div class="btn-wrapper">
-                                      <a class="btn btn-otline-dark" href="#"><i class="icon-printer"></i> Print</a>
-                                      <a class="btn btn-danger text-white me-0" href="#">Supprimer</a>
-                                    </div>
-                                  </td>
-                                </tr>
+                                <% for (let i=1; i < Sell_details.length; i++) {%>
+                                  <tr>
+                                    <td class="py-1">
+                                      <i class="mdi mdi-grid-large menu-icon"></i>
+                                    </td>
+                                    <td id="product_name">
+                                      <%= Sell_details[i] %>
+                                    </td>
+                                    <td id="product_quantity">
+                                      <%= Sell_details[i] %>
+                                    </td>
+                                    <td id="product_single_unit_price">
+                                      $ <%= Sell_details[i] %>
+                                    </td>
+                                    <td id="product_total_price">
+                                      $ <%= Sell_details[i] %>
+                                    </td>
+                                    <td>
+                                      <div class="btn-wrapper">
+                                        <a class="btn btn-otline-dark" href="#"><i class="icon-printer"></i> Print</a>
+                                        <a class="btn btn-danger text-white me-0" href="#">Supprimer</a>
+                                      </div>
+                                    </td>
+                                  </tr>
+                                <%}%>
                               </tbody>
                             </table>
 

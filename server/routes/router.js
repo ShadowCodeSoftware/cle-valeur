@@ -35,10 +35,10 @@ route.get('/api/articles', controller.findAll);
 
 // routes
 route.get('/sell/new', sellServices.new_sell);
-route.get('/sell/veiw', sellServices.show_sells_details);
-4
+route.get('/sell/veiw/:id', controller_vendeur.findAllSellDetails);
+
 // API
 route.post('/api/sells', controller_vendeur.create);
-route.get('/api/sells', controller_vendeur.findAll);
+route.get('/api/sells', controller_vendeur.findAllSells);
 
 module.exports = route

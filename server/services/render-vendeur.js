@@ -3,5 +3,5 @@ exports.new_sell = (req, res) => {
 }
 
 exports.show_sells_details = (req, res) => {
-    res.render("screens/vendeur/view_sell_details");
+    res.render("screens/vendeur/view_sell_details", {Sell_details:req.params.id});
 }
