@@ -402,11 +402,14 @@
 
                                     <td>
                                       <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                      <a href="/api/fournisseur/del/:<%= four[0][i-1] %>" class="btn btn-danger text-white me-0">
-                                        Supprimer
-                                        <!-- <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button> -->
-                                      </a>
+                                        <a class="btn btn-success text-white me-0" href="/fournisseur/update/<%= four[0][i-1] %>">
+                                          <!-- <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button> -->
+                                          Modifier
+                                        </a>
+                                        <a href="/api/fournisseur/del/<%= four[0][i-1] %>" class="btn btn-danger text-white me-0">
+                                          Supprimer
+                                          <!-- <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button> -->
+                                        </a>
                                       </div>
                                     </td>
                                   </tr>

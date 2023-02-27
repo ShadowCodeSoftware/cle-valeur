@@ -23,6 +23,8 @@ route.get('/articles/arrivee', (req, res) => {
 
 //Fournisseur
 route.get('/fournisseur/add', fournisseurServices.add_fournisseur);
+route.get('/fournisseur/update/:id', fournisseurServices.show_data);
+// route.get('/fournisseur/update', fournisseurServices.show_data);
 // Client
 
 // API
@@ -32,8 +34,13 @@ route.get('/fournisseur/add', fournisseurServices.add_fournisseur);
     
     //Fournisseur
         route.post('/api/fournisseur', controller_four.create);
+        route.post('/api/fournisseur/maj', controller_four.update);
+
         route.get('/api/fournisseur', controller_four.find);
         route.get('/api/fournisseur/del/:id', controller_four.delete);
+
+        route.get('/api/fournisseur/fetch/:id', controller_four.findOne);
+
         // route.put('/api/fournisseur/:id', controller_four.update);
         // route.delete('/api/fournisseur/:id', controller_four.delete);
 
