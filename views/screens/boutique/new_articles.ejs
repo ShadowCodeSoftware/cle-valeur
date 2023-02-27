@@ -20,6 +20,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="../../css/modal-style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
   <style type="text/css">
@@ -381,7 +382,7 @@
                                 </thead>
                                 <tbody>
                                   <% if (articles[0].length > 0) {%>
-                                    <% for(var i=0; i<articles.length; i++) {%>
+                                    <% for(let i=0; i<articles[1].length; i++) {%>
                                     <tr>
                                       <td class="py-1">
                                         <i class="mdi mdi-grid-large menu-icon"></i>
@@ -400,10 +401,12 @@
                                       </td>
                                       <td>
                                         <div class="btn-wrapper">
-                                          <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                          <a href="/api/articles/del/<%= articles[0][i]%>"><button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button></a>
+                                          <a href="/articles/update/<%= articles[0][i] %>"><button class="btn btn-success text-white me-0">Modifier</button></a>
+                                          <a href="/api/articles/del/<%= articles[0][i] %>"><button class="btn btn-danger text-white me-0" href="#">Supprimer</button></a>
                                         </div>
+                                        
                                       </td>
+                                      
                                     </tr>
                                     <% } %>
                                   <% } %>
@@ -420,6 +423,15 @@
             </div>
           </div>
         </div>
+        <!-- Modal -->
+        <!-- <div class="article-modal">
+          <div class="article-modal-content">
+            <h3>Voulez vous vraiment supprimer cette article ?</h3>
+            <div>
+              <button class="btn btn-success text-white me-0">Modifier</button>
+            </div>
+          </div>
+        </div> -->
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer">

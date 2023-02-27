@@ -33,13 +33,26 @@ exports.findAll = async (req, res) => {
 }
 
 exports.findByKey = async (req, res) => {
-
+    let data = [];
+    const key = req.params.id;
+    let article = await client.sendCommand(['HVALS', `${key}`]);
+    data.push(key);
+    data.push(article);
+    res.send(data)
 }
 
 exports.delete = async (req, res) => {
     const key = req.params.id;
     client.sendCommand(['DEL', `${key}`]);
     // res.send({data: req.params})
+    return res.redirect('/articles/add');
+}
+
+exports.update = async (req, res) => {
+    const key = req.params.id;
+    const article = await client.sendCommand(['HVALS', `${key}`]);
+    client.sendCommand(['HMSET', `${key}`, 'name', `${req.body.article_designation}`, 'price', `${req.body.article_number}`, 'qte', `${article[2]}`]);
+    // res.send({data: dt})
     return res.redirect('/articles/add');
 }
 
