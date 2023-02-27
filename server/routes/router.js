@@ -23,5 +23,6 @@ route.get('/articles/arrivee', (req, res) => {
 // API
 route.post('/api/articles', controller.create);
 route.get('/api/articles', controller.findAll);
+route.get('/api/articles/del/:id', controller.delete);
 
 module.exports = route
