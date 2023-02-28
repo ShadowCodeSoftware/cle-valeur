@@ -1,14 +1,14 @@
 const express = require('express');
 const route = express.Router();
+
 const controller = require('../controller/controller-article')
 const controllerClient = require('../controller/controller_client')
-
 const controller_vendeur = require('../controller/controller_vendeur')
 
 const articleServices = require('../services/render-articles');
 const clientServices = require('../services/render-clients');
-
 const sellServices = require('../services/render-vendeur');
+const userServices = require("../services/render-user");
 
 // Routes
 route.get('/', (req, res) => {
@@ -44,5 +44,8 @@ route.get('/sell/veiw/:id', controller_vendeur.findAllSellDetails);
 // API
 route.post('/api/sells', controller_vendeur.create);
 route.get('/api/sells', controller_vendeur.findAllSells);
+
+// users
+route.get("/user", userServices.user);
 
 module.exports = route
