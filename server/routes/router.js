@@ -4,6 +4,7 @@ const route = express.Router();
 const controller = require('../controller/controller-article')
 const controllerClient = require('../controller/controller_client')
 const controller_vendeur = require('../controller/controller_vendeur')
+const controller_user = require("../controller/controller-user");
 
 const articleServices = require('../services/render-articles');
 const clientServices = require('../services/render-clients');
@@ -47,5 +48,9 @@ route.get('/api/sells', controller_vendeur.findAllSells);
 
 // users
 route.get("/user", userServices.user);
+
+// API users
+route.post("/api/user", controller_user.create);
+route.get("/api/user", controller_user.findAll);
 
 module.exports = route
