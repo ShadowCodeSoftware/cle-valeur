@@ -48,6 +48,7 @@ route.get('/api/sells', controller_vendeur.findAllSells);
 
 // users
 route.get("/user", userServices.user);
+route.get("/update_user", userServices.update);
 
 // API users
 route.post("/api/user", controller_user.create);

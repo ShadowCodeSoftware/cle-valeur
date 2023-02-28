@@ -36,3 +36,15 @@ async function countUser() {
     }
     return count;
 }
+
+exports.update = async (req, res) => {
+    console.log(req)
+    if (!req.body) {
+        return res.status(400).send({message: "Le contenu ne peut etre vide"});
+    }
+
+    const idUser = await countUser()
+    
+    const newUser = client.sendCommand(['HMSET', `user:${idUser.length + 1}`, 'name', `${req.body.user_name}`, 'phone', `${req.body.user_phone}`, 'poste', `${req.body.user_poste}`])
+    return res.redirect('/user');
+}

@@ -1,11 +1,14 @@
 exports.user = (req, res) => {
-    axios("http://localhost:3001/api/user")
-        .then(function(response) {
-            res.render("screens/authentification/user_account", {
-                users: response.data
-            });
-        })
-        .catch(err => {
-            res.send(err)
-        })
-}
+   
+            res.render("screens/authentification/user_account") 
+               
+            };
+
+
+ exports.update = (req, res) => {
+   
+            res.render("screens/authentification/update_user") 
+                   
+                };
+
+    
