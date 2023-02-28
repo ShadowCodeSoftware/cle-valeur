@@ -1,10 +1,12 @@
 const express = require('express');
 const route = express.Router();
 const controller = require('../controller/controller-article')
+const controllerClient = require('../controller/controller_client')
 
 const controller_vendeur = require('../controller/controller_vendeur')
 
 const articleServices = require('../services/render-articles');
+const clientServices = require('../services/render-clients');
 
 const sellServices = require('../services/render-vendeur');
 
@@ -23,8 +25,10 @@ route.get('/articles/arrivee', (req, res) => {
 })
 
 
-
 // Client
+route.get('/clients/add',clientServices.add_client);
+
+
 
 // API
 route.post('/api/articles', controller.create);
