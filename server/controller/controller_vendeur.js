@@ -18,22 +18,22 @@ exports.create = async (req, res) => {
 
 
     console.log(idSell)
-    console.log(customer_name[0])
-    console.log(customer_phone_number[0])
-    console.log(product_name[0])
-    console.log(product_quantity[0])
-    console.log(product_single_unit_price[0])
-    console.log(product_total_price[0])
+    console.log(customer_name)
+    console.log(customer_phone_number)
+    console.log(product_name)
+    console.log(product_quantity)
+    console.log(product_single_unit_price)
+    console.log(product_total_price)
 
     
 
     const newSell = client.sendCommand(['HMSET', `Sell:${idSell.length + 1}`, 'customer_name', `${customer_name}`, 'customer_phone_number', `${customer_phone_number}`, 'product_name', `${product_name}`, 'product_quantity', `${product_quantity}`, 'product_single_unit_price', `${product_single_unit_price}`, 'product_total_price', `${product_total_price}`])
-    return res.redirect('/api/sells');
+    return res.redirect('/api/sells_view');
 }
 
 exports.delSell = async (req, res) => {
     client.del(`${req.params.id}`)
-    return res.redirect('/api/sells');
+    return res.redirect('/api/sells_view');
 }
 
 exports.findAllSells = async (req, res, next) => {
@@ -46,6 +46,8 @@ exports.findAllSells = async (req, res, next) => {
         item.push('Sell:'+i)
         Sells.push(item)
     }
+
+    // res.send(Sells)
 
     return res.render("screens/vendeur/vendeur",{Sells:Sells})
 }
