@@ -44,7 +44,7 @@ exports.findByKey = async (req, res) => {
 exports.delete = async (req, res) => {
     const key = req.params.id;
     client.sendCommand(['DEL', `${key}`]);
-    // res.send({data: req.params})
+    //  res.send({data: req.params})
     return res.redirect('/articles/add');
 }
 
