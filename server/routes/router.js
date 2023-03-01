@@ -53,6 +53,6 @@ route.get("/update_user", userServices.update);
 // API users
 route.post("/api/user", controller_user.create);
 route.get("/api/user", controller_user.findAll);
-route.post("/api/user", controller_user.update);
+route.post("/api/users", controller_user.update);
 
 module.exports = route
