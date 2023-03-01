@@ -9,22 +9,20 @@ exports.create = async (req, res) => {
     const idUser = await countUser()
     
     const newUser = client.sendCommand(['HMSET', `user:${idUser.length + 1}`, 'name', `${req.body.user_name}`, 'phone', `${req.body.user_phone}`, 'poste', `${req.body.user_poste}`])
-    return res.redirect('/user');
+    return res.redirect('/api/user');
 }
 
 exports.findAll = async (req, res) => {
-    let data = [];
     let users = [];
-    let keys = [];
     const listUser = await client.sendCommand(['KEYS', 'user:*']);
-    keys = listUser;
     for(var i = 0; i<listUser.length; i++) {
-        const user = await client.sendCommand(['HVALS', `${listUser[i]}`]);
+        const user = await client.sendCommand(['HGETALL', `${listUser[i]}`]);
         users.push(user);
+        user.push(listUser[i])
     }
-    data.push(keys);
-    data.push(users);
-    res.send(data)
+    console.log(users)
+
+    res.render("screens/authentification/user_account", {Users:users}) 
 }
 
 async function countUser() {
