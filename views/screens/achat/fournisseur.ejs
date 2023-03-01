@@ -2,18 +2,6 @@
 <html lang="en">
 
 <head>
-  <!--Alasql scripts-->
-  <script type="text/javascript">
-    var alasql = require('alasql');
-
-    alasql("CREATE TABLE test (language INT, hello STRING)");
-    alasql("INSERT INTO test VALUES (1, 'Hello!')");
-    alasql("INSERT INTO test VALUES (2, 'Aloha!')");
-    alasql("INSERT INTO test VALUES (3, 'Bonjour!')");
-
-    const results = alasql("SELECT * FROM test WHERE language > 1");
-    console.log(results);
-  </script>
 
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -293,30 +281,44 @@
                       <div class="col-12 grid-margin stretch-card">
                        <div class="card card-rounded">
                           <div class="card-body">
-                            <h4 class="card-title">Enregistrer nouveau Fournisseur</h4>
-                            <form class="form-sample">
-                              <p class="card-description">
+                            <h4 class="card-title text-center">Enregistrer nouveau Fournisseur</h4>
+
+                            <!-- Form -->
+                            <form class="form-sample" method="POST" action="/api/fournisseur">
+                              <p class="card-description text-center">
                                Informartions sur le fournisseur
                               </p>
-                              <div class="row">
+                              <div class="" style="margin-left: 30%;">
+
                                 <div class="col-md-6">
                                   <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Nom</label>
+                                    <label class="col-sm-3 col-form-label ps-0 pt-1">Nom</label>
                                     <div class="col-sm-9">
-                                      <input type="text" name="cli_name" class="form-control" />
+                                      <input type="text" name="four_name" class="form-control" />
                                     </div>
                                   </div>
                                 </div>
+
                                 <div class="col-md-6">
                                   <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Téléphone</label>
+                                    <label class="col-sm-3 col-form-label ps-0 pt-1">Téléphone</label>
                                     <div class="col-sm-9">
-                                      <input type="number" name="cli_phone" class="form-control" />
+                                      <input type="number" name="four_phone" class="form-control" />
                                     </div>
                                   </div>
-                                </div>  
+                                </div> 
+
+                                <div class="col-md-6">
+                                  <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label ps-0 pt-1">Localisation</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" name="four_place" class="form-control" />
+                                    </div>
+                                  </div>
+                                </div>
+
                               </div>
-                              <div class="row">
+                              <!-- <div class="row">
                                 <div class="col-md-6">
                                   <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Type Produit</label>
@@ -333,14 +335,19 @@
                                     </div>
                                   </div>
                                 </div>  
-                              </div>
-                              <button onclick="Insert()" type="submit" class="btn btn-primary me-2">Submit</button>
+                              </div> -->
+
+                              <div class="text-center">
+                                <button onclick="Insert()" type="submit" class="text-white btn btn-primary me-2">Submit</button>
                               <button class="btn btn-light">Cancel</button>
+                              </div>
+                              
                             </form>
                           </div>
                         </div>
                       </div>  
                     </div>
+
                     <div class="row" id="ClientsList"> 
                       <div class="col-lg-12 grid-margin stretch-card">
                         <div class="card">
@@ -366,175 +373,50 @@
                                       Localisation
                                     </th>
                                     <th>
-                                      Type Produits
-                                    </th>
-                                    <th>
                                       Actions
                                     </th>
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  <!-- <%= four%> -->
+                                  <% if(four.length > 0) { %>
+                                  <% var j = four.length; %>
+                                  
+                                  <% for(let i=1; i<j; i++){ %>
                                   <tr>
                                     <td class="py-1">
                                       <i class="mdi mdi-grid-large menu-icon"></i>
                                     </td>
+
                                     <td>
-                                      Foku
+                                      <%= four[i][0] %>
                                     </td>
+
                                     <td>
-                                      222569843
+                                      <%= four[i][1] %>
                                     </td>
+
                                     <td>
-                                      Gare Marchandises
+                                      <%= four[i][2] %>
                                     </td>
-                                    <td>
-                                      Produits vivriers
-                                    </td>
+
                                     <td>
                                       <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
+                                        <a class="btn btn-success text-white me-0" href="/fournisseur/update/<%= four[0][i-1] %>">
+                                          <!-- <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button> -->
+                                          Modifier
+                                        </a>
+                                        <a href="/api/fournisseur/del/<%= four[0][i-1] %>" class="btn btn-danger text-white me-0">
+                                          Supprimer
+                                          <!-- <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button> -->
+                                        </a>
                                       </div>
                                     </td>
                                   </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Foku
-                                    </td>
-                                    <td>
-                                      222569843
-                                    </td>
-                                    <td>
-                                      Gare Marchandises
-                                    </td>
-                                    <td>
-                                      Produits vivriers
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Foku
-                                    </td>
-                                    <td>
-                                      222569843
-                                    </td>
-                                    <td>
-                                      Gare Marchandises
-                                    </td>
-                                    <td>
-                                      Produits vivriers
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Foku
-                                    </td>
-                                    <td>
-                                      222569843
-                                    </td>
-                                    <td>
-                                      Gare Marchandises
-                                    </td>
-                                    <td>
-                                      Produits vivriers
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Foku
-                                    </td>
-                                    <td>
-                                      222569843
-                                    </td>
-                                    <td>
-                                      Gare Marchandises
-                                    </td>
-                                    <td>
-                                      Produits vivriers
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Foku
-                                    </td>
-                                    <td>
-                                      222569843
-                                    </td>
-                                    <td>
-                                      Gare Marchandises
-                                    </td>
-                                    <td>
-                                      Produits vivriers
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Foku
-                                    </td>
-                                    <td>
-                                      222569843
-                                    </td>
-                                    <td>
-                                      Gare Marchandises
-                                    </td>
-                                    <td>
-                                      Produits vivriers
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
+
+                                  <% } %>
+                                <% } %>
+                                  
                                 </tbody>
                               </table>
                             </div>
@@ -585,41 +467,6 @@
   <script src="../../js/Chart.roundedBarCharts.js"></script>
   <!-- End custom js for this page-->
 
-  <script>
-    var n = 2;
-
-    function AddRow() {
-      var table = document.getElementById("myTable");
-      var row = table.insertRow(n);
-      var cell1 = row.insertCell(0);
-      var cell2 = row.insertCell(1);
-      var cell3 = row.insertCell(2);
-      var cell4 = row.insertCell(3);
-      n++;
-
-      cell1.innerHTML = "<select class='form-control'><option>America</option><option>Italy</option><option>Russia</option><option>Britain</option></select>";
-      cell2.innerHTML = "<input type='number' min='0' class='form-control'>";
-      cell3.innerHTML = "<input type='number' readonly class='form-control'>";
-      cell4.innerHTML = '<i title="Retirer" style="font-size: 25px" class="mdi mdi-minus-circle text-danger icon-remove" onclick="RemoveRow(this)"></i>';
-
-    }
-
-    function RemoveRow(x) {
-      if (confirm("Confirmer la suppression ?"))
-      {
-        var table = document.getElementById("myTable");
-        //alert(x.parentElement.rowIndex);
-        table.deleteRow(x.parentElement.parentElement.rowIndex);
-        n--;
-      }
-
-    }
-
-    function OpenViewWindow(){
-      window.open('components/view_screen.html', '_blank', 'top : 15', 'left : 06', 'nodeIntegration:no');
-    }
-  </script>
 </body>
-
 </html>
 
