@@ -112,10 +112,10 @@
             <div class="collapse" id="clients">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="screens/vendeur/compte_client.html">Nouveau Client</a>
+                  <a class="nav-link" href="/clients/add">Nouveau Client</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="screens/vendeur/compte_client.html#ClientsList">Liste des Clients</a>
+                  <a class="nav-link" href="/clients/add#ClientsList">Liste des Clients</a>
                 </li>
               </ul>
             </div>
@@ -128,7 +128,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="screens/boutique/new_articles.html#Articles">
+            <a class="nav-link" href="/articles/add#Articles">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Stock Boutique</span>
             </a>
@@ -232,7 +232,7 @@
             <div class="collapse" id="fournisseur">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="screens/achat/fournisseur.html">Nouveau Fournisseur</a>
+                  <a class="nav-link" href="/fournisseur/add">Nouveau Fournisseur</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="screens/achat/fournisseur.html#ClientsList">Liste des Fournisseurs</a>
@@ -256,10 +256,10 @@
             <div class="collapse" id="user_account">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item">
-                  <a class="nav-link" href="screens/authentification/user_account.html">Nouveau Utilisateur</a>
+                  <a class="nav-link" href="/api/user">Nouveau Utilisateur</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="screens/authentification/user_account.html#ClientsList">Liste des utilisateurs</a>
+                  <a class="nav-link" href="/user#ClientsList">Liste des utilisateurs</a>
                 </li>
               </ul>
             </div>
@@ -724,7 +724,7 @@
 
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
-  <script>
+  <!-- <script>
       var alasql = require('alasql');
 
       //var db = new alasql.Database();
@@ -746,7 +746,7 @@
 
       const results = alasql("SELECT * FROM example");
       console.log(results);
-  </script>
+  </script> -->
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="vendors/chart.js/Chart.min.js"></script>

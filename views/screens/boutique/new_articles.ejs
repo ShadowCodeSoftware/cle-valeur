@@ -20,6 +20,7 @@
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="../../css/modal-style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="../../images/favicon.png" />
   <style type="text/css">
@@ -141,7 +142,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/articles/stock#Articles">
+            <a class="nav-link" href="/articles/add#Articles">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Stock Boutique</span>
             </a>
@@ -312,16 +313,10 @@
 
                                           <tr>
                                             <td>
-                                              <select name="article_designation" class="form-control">
-                                                <option value="Lait">Lait</option>
-                                                <option value="Pain">Pain</option>
-                                                <option value="Viande">Viande</option>
-                                                <option value="Legumes">Legumes</option>
-                                              </select>
+                                              <input type="text" class="form-control" name="article_designation[]">
                                             </td>
-
                                             <td>
-                                              <input type="number" min="0" class="form-control" name="article_number">
+                                              <input type="number" min="0" class="form-control" name="article_number[]">
                                             </td>
                                             <td>
                                               <i title="Retirer" style="font-size: 25px" class="mdi mdi-minus-circle text-danger icon-remove" onclick="RemoveRow(this)"></i>
@@ -386,167 +381,35 @@
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Herman Beck
-                                    </td>
-                                    <td>
-                                      254
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Herman Beck
-                                    </td>
-                                    <td>
-                                      254
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Herman Beck
-                                    </td>
-                                    <td>
-                                      254
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Herman Beck
-                                    </td>
-                                    <td>
-                                      254
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Herman Beck
-                                    </td>
-                                    <td>
-                                      254
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Herman Beck
-                                    </td>
-                                    <td>
-                                      254
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <tr>
-                                    <td class="py-1">
-                                      <i class="mdi mdi-grid-large menu-icon"></i>
-                                    </td>
-                                    <td>
-                                      Herman Beck
-                                    </td>
-                                    <td>
-                                      254
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      $ 77.99
-                                    </td>
-                                    <td>
-                                      <div class="btn-wrapper">
-                                        <button onclick="OpenViewWindow()" class="btn btn-success text-white me-0" href="#">Modifier</button>
-                                        <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                      </div>
-                                    </td>
-                                  </tr>
+                                  <% if (articles[0].length > 0) {%>
+                                    <% for(let i=0; i<articles[1].length; i++) {%>
+                                    <tr>
+                                      <td class="py-1">
+                                        <i class="mdi mdi-grid-large menu-icon"></i>
+                                      </td>
+                                      <td>
+                                        <%= articles[1][i][0] %>
+                                      </td>
+                                      <td>
+                                        <%= articles[1][i][2] %>
+                                      </td>
+                                      <td>
+                                        <%= articles[1][i][1] %> FCFA
+                                      </td>
+                                      <td>
+                                        <%= articles[1][i][2] * articles[1][i][1] %>
+                                      </td>
+                                      <td>
+                                        <div class="btn-wrapper">
+                                          <a href="/articles/update/<%= articles[0][i] %>"><button class="btn btn-success text-white me-0">Modifier</button></a>
+                                          <a href="/api/articles/del/<%= articles[0][i] %>"><button class="btn btn-danger text-white me-0" href="#">Supprimer</button></a>
+                                        </div>
+                                        
+                                      </td>
+                                      
+                                    </tr>
+                                    <% } %>
+                                  <% } %>
                                 </tbody>
                               </table>
                             </div>
@@ -560,6 +423,15 @@
             </div>
           </div>
         </div>
+        <!-- Modal -->
+        <!-- <div class="article-modal">
+          <div class="article-modal-content">
+            <h3>Voulez vous vraiment supprimer cette article ?</h3>
+            <div>
+              <button class="btn btn-success text-white me-0">Modifier</button>
+            </div>
+          </div>
+        </div> -->
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
@@ -610,8 +482,8 @@
       
       n++;
 
-      cell1.innerHTML = "<select class='form-control'><option>America</option><option>Italy</option><option>Russia</option><option>Britain</option></select>";
-      cell2.innerHTML = "<input type='number' min='0' class='form-control'>";
+      cell1.innerHTML = "<input type='text' class='form-control' name='article_designation[]'>";
+      cell2.innerHTML = "<input type='number' min='0' class='form-control' name='article_number[]'>";
       cell3.innerHTML = '<i title="Retirer" style="font-size: 25px" class="mdi mdi-minus-circle text-danger icon-remove" onclick="RemoveRow(this)"></i>';
 
     }
