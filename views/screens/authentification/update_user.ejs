@@ -59,7 +59,7 @@
         <ul class="navbar-nav">
           <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
             <h1 class="welcome-text">Espace <span class="text-black fw-bold">Comptes Utilisateurs</span></h1>
-            <h3 class="welcome-sub-text">Ajout et Liste des Utilisateurs</h3>
+            <h3 class="welcome-sub-text">Modif de la Liste de l'utilisateur</h3>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto">
@@ -293,8 +293,8 @@
                       <div class="col-12 grid-margin stretch-card">
                        <div class="card card-rounded">
                           <div class="card-body">
-                            <h4 class="card-title">Enregistrer nouveau utilisateur</h4>
-                            <form class="form-sample">
+                            <h4 class="card-title">Modifier les élément de l'utilisateur</h4>
+                            <form class="form-sample" action="/api/user" method="post" enctype="multipart/form-data">
                               <p class="card-description">
                                Informartions sur l'utilisateur
                               </p>
@@ -321,7 +321,8 @@
                                   <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Poste</label>
                                     <div class="col-sm-9">
-                                      <select class="form-control">
+                                      <select class="form-control ">
+                                        <option selected disabled> selectioner le poste</option>
                                       <option>Vendeur</option>
                                       <option>Responsable Entrepôt</option>
                                       <option>Responsable Boutique</option>
@@ -330,17 +331,9 @@
                                     </div>
                                   </div>
                                 </div>
-                                <div class="col-md-6">
-                                  <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Téléphone</label>
-                                    <div class="col-sm-9">
-                                      <input type="number" name="cli_phone" class="form-control" />
-                                    </div>
-                                  </div>
-                                </div>  
                               </div>
-                              <button onclick="Insert()" type="submit" class="btn btn-primary me-2">Submit</button>
-                              <button class="btn btn-light">Cancel</button>
+                              <button type="submit" name="send" class="btn btn-primary">Submit</button>
+                              <a  class="btn btn-danger" href="./user">Cancel</a>
                             </form>
                           </div>
                         </div>
@@ -423,6 +416,18 @@
     function OpenViewWindow(){
       window.open('components/view_screen.html', '_blank', 'top : 15', 'left : 06', 'nodeIntegration:no');
     }
+
+   // function update_user(){
+         
+      //selectione l'élément input et afficher sa valeur
+
+     // var input=document.getElementById("in").value;
+
+      //Afficher la valeur
+     // alert(input)
+   // }
+
+
   </script>
 </body>
 
