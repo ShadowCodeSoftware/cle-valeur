@@ -1,0 +1,16 @@
+.article-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.301);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article-modal-content {
+    width: 30%;
+    height: 40%;
+    border-radius: 1rem;
+    background-color: white;
+}

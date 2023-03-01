@@ -1,12 +1,10 @@
 const express = require('express');
 const route = express.Router();
 
-const controller = require('../controller/controller-article')
 const controllerClient = require('../controller/controller_client')
 const controller_vendeur = require('../controller/controller_vendeur')
 const controller_user = require("../controller/controller-user");
 
-const articleServices = require('../services/render-articles');
 const clientServices = require('../services/render-clients');
 const sellServices = require('../services/render-vendeur');
 const userServices = require("../services/render-user");
@@ -16,9 +14,8 @@ route.get('/', (req, res) => {
     res.render("index");
 })
 
-// Articles
-route.get('/articles/add', articleServices.add_article);
-route.get('/articles/stock', articleServices.show_articles);
+// --- Articles ---
+require("./routes_articles")(route);
 
 // Approvisionnement
 route.get('/articles/arrivee', (req, res) => {
@@ -26,14 +23,9 @@ route.get('/articles/arrivee', (req, res) => {
 })
 
 
+
 // Client
 route.get('/clients/add',clientServices.add_client);
-
-
-
-// API
-route.post('/api/articles', controller.create);
-route.get('/api/articles', controller.findAll);
 
 
 // Sells
