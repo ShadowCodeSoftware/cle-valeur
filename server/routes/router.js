@@ -1,17 +1,11 @@
 const express = require('express');
 const route = express.Router();
 
-const controller_four = require('../controller/controller-fournisseur');
-
-//Required
-const fournisseurServices = require('../services/render-fournisseur');
-
 const controllerClient = require('../controller/controller_client')
-const controller_vendeur = require('../controller/controller_vendeur')
+
 const controller_user = require("../controller/controller-user");
 
 const clientServices = require('../services/render-clients');
-const sellServices = require('../services/render-vendeur');
 const userServices = require("../services/render-user");
 
 // Routes
@@ -23,23 +17,15 @@ route.get('/', (req, res) => {
 require("./routes_articles")(route);
 
 
-//Fournisseur
-route.get('/fournisseur/add', fournisseurServices.add_fournisseur);
-route.get('/fournisseur/update/:id', fournisseurServices.show_data);
-// route.get('/fournisseur/update', fournisseurServices.show_data);
+// --- Fournisseur ---
+require("./routes-fournisseur")(route);
+
+
+// --- Vendeur ---
+require("./router_vendeur")(route);
 
 // Client
 route.get('/clients/add',clientServices.add_client);
-
-
-// Sells
-
-// routes
-route.get('/sell/veiw/:id', controller_vendeur.findAllSellDetails);
-
-// API
-route.post('/api/sells', controller_vendeur.create);
-route.get('/api/sells', controller_vendeur.findAllSells);
 
 // users
 route.get("/user", userServices.user);
