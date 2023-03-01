@@ -23,7 +23,5 @@ require("./router_user")(route);
 // Client
 require("./router_client")(route);
 
-// users
-
 
 module.exports = route
