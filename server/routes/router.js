@@ -34,10 +34,8 @@ route.get('/api/articles', controller.findAll);
 // Sells
 
 // routes
-route.get('/sell/new', sellServices.new_sell);
 route.get('/sell/veiw/:id', controller_vendeur.findAllSellDetails);
-
-// API
+route.get('/sell/veiw/del/:id', controller_vendeur.delSell);
 route.post('/api/sells', controller_vendeur.create);
 route.get('/api/sells', controller_vendeur.findAllSells);
 

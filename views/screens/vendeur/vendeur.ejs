@@ -437,18 +437,19 @@
                                         </td>
 
                                         <td>
-                                          $ <%= Sells[i][11] %>
+                                          $ <%= Sells[i][11] * Sells[i][9] %>
                                         </td>
                                         <td>
                                           <div class="btn-wrapper">
-                                            <a href="/sell/veiw/<%= Sells[i][Sells.length] %>"
+                                            <a href="/sell/veiw/<%= Sells[i][Sells[i].length - 1] %>"
                                               class="btn btn-primary text-white me-0" href="#">Consulter </a>
-                                            <a class="btn btn-primary text-white me-0" href="#"><i
-                                                class="icon-download"></i> Export</a>
+                                            <a href=""
+                                              class="btn btn-warning text-white me-0" href="#">Modifier</a>
+                                            <a href="/sell/veiw/del/<%= Sells[i][Sells[i].length - 1] %>" class="btn btn-danger text-white me-0" href="#">Supprimer</a>
                                           </div>
                                         </td>
                                       </tr>
-                                    <%}%>
+                                      <%}%>
                                   </tbody>
                                 </table>
                               </div>
