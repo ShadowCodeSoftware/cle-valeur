@@ -8,5 +8,5 @@ module.exports = (route) => {
     route.get('/sell/veiw/:id', controller_vendeur.findAllSellDetails);
 
     route.post('/api/sells', controller_vendeur.create);
-    route.get('/api/sells', controller_vendeur.findAllSells);
+    route.get('/api/sells_view', controller_vendeur.findAllSells);
 }
