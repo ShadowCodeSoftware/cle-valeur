@@ -352,24 +352,26 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  <% for(var i = 0; i < Users.length; i++) { %>
                                   <tr>
                                     <td class="py-1">
                                       <i class="mdi mdi-grid-large menu-icon"></i>
                                     </td>
                                     <td>
-                                      Moussa
+                                      <%= Users[i][1] %>
                                     </td>
                                     <td>
-                                      698135846
+                                      <%= Users[i][1] %>
                                     </td>
                                     <td>
                                       <div class="btn-wrapper">
                                         <button onclick="OpenViewWindow()" class="btn btn-primary text-white me-0" href="#">Consulter</button>
                                         <button onclick="OpenViewWindow()" class="btn btn-danger text-white me-0" href="#">Supprimer</button>
-                                        <a  class="btn btn-success text-white me-0" href="./update_user">Modifier</a>
+                                        <a  class="btn btn-success text-white me-0" href="./update_user/<% Users[Users.length- 1] %>">Modifier</a>
                                       </div>
                                     </td>
                                   </tr>
+                                  <% } %>
                                 </tbody>
                               </table>
                             </div>
